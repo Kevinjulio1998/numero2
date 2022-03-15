@@ -1,0 +1,47 @@
+﻿@model Services.Models.ResourceLogin
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+<div class="content">
+    <div class="flex-div">
+        <div class="name-content">
+            <h1 class="logo">Plantilla Tecnica KJ</h1>
+            <p>¡Bienvenido a mi página web!</p>
+        </div>
+        <form  asp-action="Login" >
+            <input asp-for="Email" type="email" placeholder="Correo" required />
+            <input asp-for="Password" type="password" placeholder="Constraseña" required>
+            <button type="submit" value="Create"  class="login">Iniciar sesión</button>
+            <hr>
+            <button  id="valuedata" data-toggle="modal" data-target="#exampleModal" class="create-account">Crear una cuenta</button>
+        </form>
+    </div>
+ 
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="  max-width: 1000px">
+        <div class="modal-content">
+            <div class="modal-body" id="modalBody">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+@section Scripts 
+{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script src="~/js/site.js"></script>
+}
